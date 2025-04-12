@@ -1,0 +1,42 @@
+{
+  "name": "brakecode-frontend",
+  "version": "0.1.0",
+  "description": "",
+  "homepage": "https://brakecode.com",
+  "bugs": {
+    "url": "https://gitlab.com/sublet/frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/sublet/frontend.git"
+  },
+  "license": "MIT",
+  "author": "june07",
+  "type": "module",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "cross-env NODE_ENV=production && vite build",
+    "build-dev": "VITE_DEBUG=true vite build --mode dev",
+    "preview": "vite preview",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "test": "vitest",
+    "generate-cert": "node generateCert.js"
+  },
+  "dependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "animate.css": "^4.1.1",
+    "vite": "^6.2.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-node-polyfills": "^0.23.0",
+    "vite-plugin-vuetify": "^2.1.0",
+    "vue": "^3.5.13",
+    "vuetify": "^3.8.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.23.0",
+    "sass": "^1.86.1"
+  }
+}
