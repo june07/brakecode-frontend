@@ -25,11 +25,15 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue'
 import { useDisplay } from 'vuetify'
-import codeDetails from './codes'
 
+const modules = import.meta.glob('./codes/*.vue', { eager: true })
+console.log(modules)
 const { xs } = useDisplay()
 const query = ref()
-const codes = computed(() => Object.keys(codeDetails).map(title => ({ title, value: codeDetails[title] })) || [])
+const codes = computed(() => Object.keys(modules).map(title => ({
+    title: title.split('/').pop().replace('.vue', ''),
+    value: modules[title].default
+})) || [])
 const products = ref([
 	{ id: 0, link: 'https://amzn.to/3Rek2XC', asin: 'B0CTHJW813', price: '219.99' },
 	{ id: 1, link: 'https://amzn.to/3XXfqcl', asin: 'B007XE8C74', price: '29.99' },
