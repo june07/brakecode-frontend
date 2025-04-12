@@ -9,6 +9,7 @@
 			<div class="d-flex w-100 mt-4 justify-center">
 				<a v-for="product in products" :key="product.id" :href="product.link" target="_blank" rel="noopener noreferrer" class="mr-2">
 					<v-img :src="`/products/${product.asin}/image.webp`" width="200" height="200" />
+                    <v-chip class="mt-2 text-body-2" color="yellow-darken-2">{{ Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price) }}</v-chip>
 				</a>
 			</div>
 		</div>
@@ -30,8 +31,9 @@ const { xs } = useDisplay()
 const query = ref()
 const codes = computed(() => Object.keys(codeDetails).map(title => ({ title, value: codeDetails[title] })) || [])
 const products = ref([
-	{ id: 0, link: 'https://amzn.to/3Rek2XC', asin: 'B0CTHJW813' },
-	{ id: 1, link: 'https://amzn.to/3XXfqcl', asin: 'B007XE8C74' },
+	{ id: 0, link: 'https://amzn.to/3Rek2XC', asin: 'B0CTHJW813', price: '219.99' },
+	{ id: 1, link: 'https://amzn.to/3XXfqcl', asin: 'B007XE8C74', price: '29.99' },
+    { id: 2, link: 'https://amzn.to/42r3qkz', asin: 'B07Q5H7M5S', price: '19.99' },
 ])
 const taglines = ref([
 	'The Best OBD-II Scanner Lookup Tool In The Entire Observable Universe',
